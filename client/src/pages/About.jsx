@@ -5,10 +5,10 @@ const About = () => {
     <div className='min-h-screen flex items-center justify-center'>
       <div className='max-w-2xl mx-auto p-3 text-center'>
         <div>
-          <h1 className='text-2xl font-semibold text-center mb-5'>About Nazibul's Blog</h1>
+          <h1 className='text-2xl font-semibold text-center mb-5'>About BlogForge</h1>
           <div className='text-sm text-gray-500 flex flex-col gap-4'>
             <p>
-              Welocome to Nazibul Blog!. This Blog was created by Sk Nazibul Hossain as a personal project to share his thoughts and ideas with the world.
+              Welocome to BlogForge. This Blog was created by Sk Nazibul Hossain as a personal project to share his thoughts and ideas with the world.
               Nazinul is a passionate developer who loves to write about technology,coding and everything in between.
             </p>
             <p>

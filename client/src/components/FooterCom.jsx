@@ -11,8 +11,7 @@ const FooterCom = () => {
                     <Link to={'/'} className='self-center whitespace-nowrap text-lg sm:text-xl
                          font-semibold dark:text-white'>
                         <span className='px-2 py-1 bg-gradient-to-r from-indigo-500
-                         via-purple-500 to-pink-500 rounded-lg text-white'>Nazibul's</span>
-                        Blog
+                         via-purple-500 to-pink-500 rounded-lg text-white'>BlogForge</span>
                     </Link>
                 </div>
                 <div className='grid grid-cols-2 gap-5 sm:mt-4 sm:grid-cols-3 sm:gap-6'>
@@ -25,7 +24,7 @@ const FooterCom = () => {
                             </Footer.Link>
                             <Footer.Link href='/about' target='_blank'
                                 rel='noopener noreferrer'>
-                                Nazibul's Blog
+                                BlogForge
                             </Footer.Link>
                         </Footer.LinkGroup>
                     </div>
@@ -57,7 +56,7 @@ const FooterCom = () => {
             </div>
             <Footer.Divider />
             <div className='w-full mx-auto'>
-                <Footer.Copyright href='#' by="Nazibul's blog" year={new Date().getFullYear()} />
+                <Footer.Copyright href='#' by="BlogForge" year={new Date().getFullYear()} />
             </div>
             <div className='flex gap-6 sm:mt-1 mt-3 sm:justify-center'>
                 <Footer.Icon href='#' icon={BsFacebook} />

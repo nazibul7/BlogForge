@@ -46,7 +46,7 @@ const Signin = () => {
           <Link to={'/'} className='text-4xl
             font-bold dark:text-white'>
             <span className='px-2 py-1 bg-gradient-to-r from-indigo-500
-            via-purple-500 to-pink-500 rounded-lg text-white'>Nazibul's</span>
+            via-purple-500 to-pink-500 rounded-lg text-white'>BlogForge</span>
             Blog
           </Link>
           <p className='text-sm mt-5'>This is a demo project. You can sign in with your email and password

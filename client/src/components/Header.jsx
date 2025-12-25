@@ -50,8 +50,7 @@ const Header = () => {
             <Link to={'/'} className='self-center whitespace-nowrap text-sm sm:text-xl
             font-semibold dark:text-white'>
                 <span className='px-2 py-1 bg-gradient-to-r from-indigo-500
-            via-purple-500 to-pink-500 rounded-lg text-white'>Nazibul's</span>
-                Blog
+            via-purple-500 to-pink-500 rounded-lg text-white'>BlogForge</span>
             </Link>
             <form onSubmit={handleSubmit}>
                 <TextInput type='text' placeholder='Search...'
