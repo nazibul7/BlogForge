@@ -19,7 +19,7 @@ console.log(users);
   }, [currentUser._id])
   const fetchusers = async () => {
     try {
-      const res = await fetch(`/api/user/getusers`)
+      const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/user/getusers`)
       const data = await res.json()
       if (res.ok) {
         setUsers(data.users)
@@ -34,7 +34,7 @@ console.log(users);
   const handleShowMore = async () => {
     const startIndex = users.length
     try {
-      const res = await fetch(`/api/user/getuser?startIndex=${startIndex}`)
+      const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/user/getuser?startIndex=${startIndex}`)
       const data = await res.json()
       setUsers((prev) => [...prev, ...data.users])
       if (data.users.length < 5) {
@@ -47,7 +47,7 @@ console.log(users);
   const handleDeleteuser = async () => {
     setShowModal(false)
     try {
-      const req = await fetch(`/api/user/delete/${userIdToDelete}`, {
+      const req = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/user/delete/${userIdToDelete}`, {
         method: "DELETE"
       })
       const data = await req.json()

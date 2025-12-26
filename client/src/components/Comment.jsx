@@ -12,7 +12,7 @@ const Comment = ({ comment, onLike, onEdit,onDelete }) => {
     useEffect(() => {
         const getUser = async () => {
             try {
-                const res = await fetch(`/api/user/${comment.userId}`)
+                const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/user/${comment.userId}`)
                 const data = await res.json()
                 if (res.ok) {
                     setUser(data)
@@ -29,7 +29,7 @@ const Comment = ({ comment, onLike, onEdit,onDelete }) => {
     }
     const handleSave = async () => {
         try {
-            const res = await fetch(`/api/comment/editComment/${comment._id}`, {
+            const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/comment/editComment/${comment._id}`, {
                 method: "PUT",
                 headers: {
                     'Content-Type': "application/json"
