@@ -28,7 +28,7 @@ const Search = () => {
       setLoading(true)
       const searchQuery = urlparams.toString()
       try {
-        const res = await fetch(`/api/post/getPosts?${searchQuery}`)
+        const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/post/getPosts?${searchQuery}`)
         const data = await res.json()
         if (res.ok) {
           setLoading(false)

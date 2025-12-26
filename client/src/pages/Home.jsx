@@ -7,7 +7,7 @@ const Home = () => {
   useEffect(() => {
     const fetchPost = async () => {
       try {
-        const res = await fetch(`/api/post/getPosts`)
+        const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/post/getPosts`)
         const data = await res.json()
         if (res.ok) {
           setPosts(data.post)
