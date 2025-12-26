@@ -17,7 +17,7 @@ const CommentSection = ({ postId }) => {
         event.preventDefault()
         if (comment.length > 200) return
         try {
-            const res = await fetch(`/api/comment/create`, {
+            const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/comment/create`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ commentContent: comment, postId, userId: currentUser._id })
@@ -36,7 +36,7 @@ const CommentSection = ({ postId }) => {
     useEffect(() => {
         const fetchComments = async () => {
             try {
-                const res = await fetch(`/api/comment/getPostComments/${postId}`)
+                const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/comment/getPostComments/${postId}`)
                 const data = await res.json()
                 if (res.ok) {
                     setComments(data)
@@ -54,7 +54,7 @@ const CommentSection = ({ postId }) => {
                 navigate('/sign-in')
                 return
             }
-            const res = await fetch(`/api/comment/likeComment/${commentId}`, {
+            const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/comment/likeComment/${commentId}`, {
                 method: "PUT"
             })
             if (res.ok) {
@@ -83,7 +83,7 @@ const CommentSection = ({ postId }) => {
                 navigate('/sign-in')
                 return
             }
-            const res = await fetch(`/api/comment/deleteComment/${commentId}`, {
+            const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/comment/deleteComment/${commentId}`, {
                 method: "DELETE"
             })
             if (res.ok) {

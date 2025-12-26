@@ -18,7 +18,7 @@ const DashPosts = () => {
   }, [currentUser._id])
   const fetchPosts = async () => {
     try {
-      const res = await fetch(`/api/post/getposts?userId=${currentUser?._id}`)
+      const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/post/getposts?userId=${currentUser?._id}`)
       const data = await res.json()
       if (res.ok) {
         setUserPosts(data.post)
@@ -33,7 +33,7 @@ const DashPosts = () => {
   const handleShowMore = async () => {
     const startIndex = userPosts.length
     try {
-      const res = await fetch(`/api/post/getposts?userId=${currentUser?._id}&startIndex=${startIndex}`)
+      const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/post/getposts?userId=${currentUser?._id}&startIndex=${startIndex}`)
       const data = await res.json()
       setUserPosts((prev) => [...prev, ...data.post])
       if (data.post.length < 5) {
@@ -46,7 +46,7 @@ const DashPosts = () => {
   const handleDeletePost = async () => {
     setShowModal(false)
     try {
-      const req = await fetch(`/api/post/deletepost/${postIdToDelete}/${currentUser._id}`, {
+      const req = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/post/deletepost/${postIdToDelete}/${currentUser._id}`, {
         method: "DELETE"
       })
       const data = await req.json()

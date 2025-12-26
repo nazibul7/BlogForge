@@ -21,7 +21,7 @@ const UpdatePost = () => {
     useEffect(() => {
         const fetchPost = async () => {
             try {
-                const res = await fetch(`/api/post/getposts?postId=${postId}`)
+                const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/post/getposts?postId=${postId}`)
                 const data = await res.json()
                 setFormData(data.post[0])
                 setX(data.post[0])
@@ -91,7 +91,7 @@ const UpdatePost = () => {
         try {
             console.log(formData);
             console.log(formData._id);
-            const res = await fetch(`/api/post/updatepost/${x._id}/${currentUser._id}`, {
+            const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/post/updatepost/${x._id}/${currentUser._id}`, {
                 method: "PUT",
                 headers: {
                     'Content-Type': 'application/json'

@@ -7,7 +7,7 @@ const Home = () => {
   useEffect(() => {
     const fetchPost = async () => {
       try {
-        const res = await fetch(`/api/post/getPosts`)
+        const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/post/getPosts`)
         const data = await res.json()
         if (res.ok) {
           setPosts(data.post)
@@ -21,7 +21,7 @@ const Home = () => {
   return (
     <div className=''>
       <div className='flex flex-col gap-4 p-20 mx-auto max-w-3xl'>
-        <h1 className='text-3xl font-bold lg:text-4xl'>Welcome to my Blog</h1>
+        <h1 className='text-3xl font-bold lg:text-4xl'>Welcome to BlogForge</h1>
         <p className='text-gray-500 text-xs sm:text-sm'>
           Here you'll find variety of articles and tutorials
           on topics such as web development,software engineering, and programming language

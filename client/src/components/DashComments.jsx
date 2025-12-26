@@ -19,7 +19,7 @@ const DashComments = () => {
   }, [currentUser._id])
   const fetchComments = async () => {
     try {
-      const res = await fetch(`/api/comment/getcomments`)
+      const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/comment/getcomments`)
       const data = await res.json()
       console.log(data);
       if (res.ok) {
@@ -35,7 +35,7 @@ const DashComments = () => {
   const handleShowMore = async () => {
     const startIndex = comments.length
     try {
-      const res = await fetch(`/api/user/getcomments?startIndex=${startIndex}`)
+      const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/user/getcomments?startIndex=${startIndex}`)
       const data = await res.json()
       setComments((prev) => [...prev, ...data.comments])
       if (data.comments.length < 5) {
@@ -48,7 +48,7 @@ const DashComments = () => {
   const handleDeleteComment = async () => {
     setShowModal(false)
     try {
-      const req = await fetch(`/api/comment/deleteComment/${commentIdToDelete}`, {
+      const req = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/comment/deleteComment/${commentIdToDelete}`, {
         method: "DELETE"
       })
       const data = await req.json()
