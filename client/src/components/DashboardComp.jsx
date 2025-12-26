@@ -126,7 +126,7 @@ const DashboardComp = () => {
           <Table hoverable>
             <Table.Head>
               <Table.HeadCell>User image</Table.HeadCell>
-              <Table.HeadCell>Username</Table.HeadCell>
+              <Table.HeadCell>Email</Table.HeadCell>
             </Table.Head>
             {users &&
               users.map((user) => (
@@ -139,7 +139,7 @@ const DashboardComp = () => {
                         className='w-10 h-10 rounded-full bg-gray-500'
                       />
                     </Table.Cell>
-                    <Table.Cell>{user.username}</Table.Cell>
+                    <Table.Cell>{user.email}</Table.Cell>
                   </Table.Row>
                 </Table.Body>
               ))}
