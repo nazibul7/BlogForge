@@ -7,7 +7,7 @@ export default function Layout({ children }) {
         <div className="flex flex-col min-h-screen">
             <ScrollToTop />
             <Header />
-            <div className="flex-1">
+            <div className="flex-1 min-h-screen flex flex-col justify-center">
                 {children}
             </div>
             <FooterCom/>
