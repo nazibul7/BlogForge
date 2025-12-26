@@ -1,20 +1,22 @@
 import { Alert, Button, Label, Spinner, TextInput } from 'flowbite-react'
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import OAuth from '../components/OAuth'
 
 const Signup = () => {
-  const navigate = useNavigate()
-  const [formData, setFormData] = useState({})
-  const [errorMessage, setErrorMessage] = useState(null)
-  const [loading, setLoading] = useState(false)
+  const navigate = useNavigate();
+  const [formData, setFormData] = useState({});
+  const [errorMessage, setErrorMessage] = useState(null);
+  const [loading, setLoading] = useState(false);
+
   const handleChange = (event) => {
-    setFormData({ ...formData, [event.target.id]: event.target.value.trim() })
-  }
+    setFormData({ ...formData, [event.target.id]: event.target.value.trim() });
+  };
+
   const handleSubmit = async (event) => {
-    event.preventDefault()
-    if (!formData.username || !formData.email || !formData.password) {
-      return setErrorMessage("Please fill out all the fields")
+    event.preventDefault();
+    if (!formData.email || !formData.password) {
+      return setErrorMessage("Please fill out all the fields");
     }
     try {
       setLoading(true)
@@ -33,68 +35,125 @@ const Signup = () => {
         navigate('/sign-in')
       }
     } catch (error) {
-      setErrorMessage(error.message)
-      setLoading(false)
+      setErrorMessage(error.message);
+      setLoading(false);
     }
-  }
+  };
+
   return (
-    <div className='min-h-screen mt-20'>
-      <div className='flex p-3 max-w-2xl mx-auto flex-col md:flex-row md:items-center gap-5'>
-        {/* left side */}
-        <div className='flex-1'>
-          <Link to={'/'} className='text-4xl
-            font-bold dark:text-white'>
-            <span className='px-2 py-1 bg-gradient-to-r from-indigo-500
-            via-purple-500 to-pink-500 rounded-lg text-white'>BlogForge</span>
-          </Link>
-          <p className='text-sm mt-5'>This is a demo project. You can sign up with your email and password
-            or with Google.
-          </p>
-        </div>
-
-        {/* right side */}
-
-        <div className='flex-1'>
-          <form>
-            <div>
-              <Label value='Username'></Label>
-              <TextInput onChange={handleChange} type='text' placeholder='Username' id='username' />
+    <div className='min-h-screen bg-gray-50 dark:bg-gray-900'>
+      <div className='flex p-4 sm:p-6 lg:p-8 max-w-6xl mx-auto min-h-screen'>
+        <div className='flex flex-col md:flex-row md:gap-12 lg:gap-16 w-full my-auto'>
+          
+          {/* Left side - Brand */}
+          <div className='flex-1 md:flex flex-col justify-center mb-8 md:mb-0 hidden'>
+            <Link to={'/'} className='text-3xl sm:text-4xl font-bold dark:text-white'>
+              <span className='px-2 py-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-lg text-white'>
+                BlogForge
+              </span>
+            </Link>
+            <p className='text-sm sm:text-base text-gray-600 dark:text-gray-400 mt-5'>
+              Publish your ideas. Read freely.
+            </p>
+            
+            {/* Additional info for desktop */}
+            <div className='hidden md:block mt-8 space-y-4'>
+              <div className='flex items-start gap-3'>
+                <div className='w-8 h-8 rounded-full bg-purple-100 dark:bg-purple-900 flex items-center justify-center flex-shrink-0'>
+                  <span className='text-purple-600 dark:text-purple-400'>✓</span>
+                </div>
+                <div>
+                  <h3 className='font-semibold text-gray-800 dark:text-gray-200'>Share Your Ideas</h3>
+                  <p className='text-sm text-gray-600 dark:text-gray-400'>Publish blog posts and reach thousands of readers</p>
+                </div>
+              </div>
+              <div className='flex items-start gap-3'>
+                <div className='w-8 h-8 rounded-full bg-purple-100 dark:bg-purple-900 flex items-center justify-center flex-shrink-0'>
+                  <span className='text-purple-600 dark:text-purple-400'>✓</span>
+                </div>
+                <div>
+                  <h3 className='font-semibold text-gray-800 dark:text-gray-200'>Free Access</h3>
+                  <p className='text-sm text-gray-600 dark:text-gray-400'>Read and comment on posts without an account</p>
+                </div>
+              </div>
             </div>
-            <div>
-              <Label value='Email'></Label>
-              <TextInput onChange={handleChange} type='email' placeholder='Email' id='email' />
-            </div>
-            <div>
-              <Label value='Password'></Label>
-              <TextInput onChange={handleChange} type='password' placeholder='Password' id='password' />
-            </div>
-            <div className='mt-3'>
-              <Button onClick={handleSubmit} gradientDuoTone='purpleToPink' className='w-full' type='submit'
-                disabled={loading} >
-                {loading ? (
-                  <>
-                    <Spinner size={'sm'} />
-                    <span className='pl-2'>Loading...</span>
-                  </>
-                ) : "Sign Up"}
-              </Button>
-              <OAuth/>
-            </div>
-          </form>
-          <div className='flex gap-2 text-sm mt-4'>
-            <span>Have an account?</span>
-            <Link to='/sign-in' className='text-blue-500'>Sign In</Link>
           </div>
-          {errorMessage && (
-            <Alert className='mt-4' color={'failure'}>
-              {errorMessage}
-            </Alert>
-          )}
-        </div>
 
+          {/* Right side - Form */}
+          <div className='flex-1 max-w-md mx-auto w-full'>
+            <div className='bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 sm:p-8'>
+              <h2 className="text-2xl sm:text-3xl font-semibold text-center text-gray-900 dark:text-white">
+                Sign Up
+              </h2>
+              <p className="text-center text-xs text-gray-500 dark:text-gray-400 mt-2 mb-6">
+                Create an account to publish your own blog posts.
+                <br className='hidden sm:inline' />
+                <span className='sm:inline'> </span>
+                You can read & comment without an account.
+              </p>
+
+              <form onSubmit={handleSubmit} className='space-y-4'>
+                <div>
+                  <Label htmlFor='email' value='Email' className='mb-2 block' />
+                  <TextInput
+                    onChange={handleChange}
+                    type='email'
+                    placeholder='name@example.com'
+                    id='email'
+                    sizing='lg'
+                  />
+                </div>
+                
+                <div>
+                  <Label htmlFor='password' value='Password' className='mb-2 block' />
+                  <TextInput
+                    onChange={handleChange}
+                    type='password'
+                    placeholder='••••••••'
+                    id='password'
+                    sizing='lg'
+                  />
+                </div>
+
+                <Button
+                  onClick={handleSubmit}
+                  gradientDuoTone='purpleToPink'
+                  className='w-full'
+                  type='submit'
+                  disabled={loading}
+                  size='lg'
+                >
+                  {loading ? (
+                    <>
+                      <Spinner size='sm' />
+                      <span className='pl-2'>Loading...</span>
+                    </>
+                  ) : (
+                    "Sign Up"
+                  )}
+                </Button>
+
+                <OAuth />
+              </form>
+
+              <div className='flex justify-center gap-2 text-sm mt-3 text-gray-600 dark:text-gray-400'>
+                <span>Have an account?</span>
+                <Link to='/sign-in' className='text-blue-600 dark:text-blue-400 hover:underline font-medium'>
+                  Sign In
+                </Link>
+              </div>
+
+              {errorMessage && (
+                <Alert className='mt-4' color='failure'>
+                  {errorMessage}
+                </Alert>
+              )}
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Signup
+export default Signup;
