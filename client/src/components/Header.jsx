@@ -7,6 +7,7 @@ import { HiX } from "react-icons/hi"
 import { useSelector, useDispatch } from "react-redux"
 import { toogleTheme } from '../redux/theme/themeSlice'
 import { signOutSuccess } from '../redux/features/userSlice'
+import BlogForgeLogo from './BlogForgeLogo'
 
 const Header = () => {
     const path = useLocation().pathname
@@ -59,8 +60,10 @@ const Header = () => {
                 {/* Logo and Nav Section */}
                 <div className='flex items-center gap-8'>
                     {/* Logo */}
-                    <Link to={'/'} className='self-center whitespace-nowrap flex-shrink-0'>
-                        <span className='text-2xl sm:text-3xl font-bold bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent hover:from-indigo-500 hover:via-purple-500 hover:to-pink-500 transition-all'>
+
+                    <Link to={'/'} className='flex items-center self-center whitespace-nowrap flex-shrink-0 tracking-tighter'>
+                        <BlogForgeLogo size='xl' showText={false} />
+                        <span className='text-2xl ml-[-10px] sm:text-3xl font-bold bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent hover:from-indigo-500 hover:via-purple-500 hover:to-pink-500 transition-all'>
                             BlogForge
                         </span>
                     </Link>
@@ -69,31 +72,28 @@ const Header = () => {
                     <nav className='hidden md:flex items-center gap-1'>
                         <Link
                             to={'/'}
-                            className={`px-4 py-2 text-xl font-medium rounded-lg transition-all ${
-                                path === '/' 
-                                    ? 'text-purple-600 dark:text-purple-400 bg-purple-50 dark:bg-purple-900/20' 
-                                    : 'text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 hover:bg-gray-100 dark:hover:bg-gray-800'
-                            }`}
+                            className={`px-4 py-2 text-xl font-medium rounded-lg transition-all ${path === '/'
+                                ? 'text-purple-600 dark:text-purple-400 bg-purple-50 dark:bg-purple-900/20'
+                                : 'text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 hover:bg-gray-100 dark:hover:bg-gray-800'
+                                }`}
                         >
                             Home
                         </Link>
                         <Link
                             to={'/about'}
-                            className={`px-4 py-2 text-xl font-medium rounded-lg transition-all ${
-                                path === '/about' 
-                                    ? 'text-purple-600 dark:text-purple-400 bg-purple-50 dark:bg-purple-900/20' 
-                                    : 'text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 hover:bg-gray-100 dark:hover:bg-gray-800'
-                            }`}
+                            className={`px-4 py-2 text-xl font-medium rounded-lg transition-all ${path === '/about'
+                                ? 'text-purple-600 dark:text-purple-400 bg-purple-50 dark:bg-purple-900/20'
+                                : 'text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 hover:bg-gray-100 dark:hover:bg-gray-800'
+                                }`}
                         >
                             About
                         </Link>
                         <Link
                             to={'/projects'}
-                            className={`px-4 py-2 text-xl font-medium rounded-lg transition-all ${
-                                path === '/projects' 
-                                    ? 'text-purple-600 dark:text-purple-400 bg-purple-50 dark:bg-purple-900/20' 
-                                    : 'text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 hover:bg-gray-100 dark:hover:bg-gray-800'
-                            }`}
+                            className={`px-4 py-2 text-xl font-medium rounded-lg transition-all ${path === '/projects'
+                                ? 'text-purple-600 dark:text-purple-400 bg-purple-50 dark:bg-purple-900/20'
+                                : 'text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 hover:bg-gray-100 dark:hover:bg-gray-800'
+                                }`}
                         >
                             Projects
                         </Link>
@@ -171,9 +171,9 @@ const Header = () => {
                         </Dropdown>
                     ) : (
                         <Link to='/sign-in'>
-                            <Button 
-                                gradientDuoTone='purpleToBlue' 
-                                outline 
+                            <Button
+                                gradientDuoTone='purpleToBlue'
+                                outline
                                 size='sm'
                                 className='font-medium'
                             >
@@ -223,12 +223,12 @@ const Header = () => {
                     >
                         {theme === "light" ? (
                             <>
-                                <FaMoon className='w-4 h-4' /> 
+                                <FaMoon className='w-4 h-4' />
                                 <span>Dark Mode</span>
                             </>
                         ) : (
                             <>
-                                <FaSun className='w-4 h-4' /> 
+                                <FaSun className='w-4 h-4' />
                                 <span>Light Mode</span>
                             </>
                         )}
