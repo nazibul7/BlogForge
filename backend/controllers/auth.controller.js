@@ -6,13 +6,13 @@ import jwt from "jsonwebtoken"
 // @signup controller
 export const signup = async (req, res, next) => {
     try {
-        const { username, email, password } = req.body
-        if (!username || !email || !password || username == "" || email == "" || password == "") {
+        const { email, password } = req.body
+        if (!email || !password || email == "" || password == "") {
             next(errorHandler(400, "All fields are required"))
         }
         const hashPassword = bcryptjs.hashSync(password, 10)
         const newUser = await User.create({
-            username, email, password: hashPassword
+            email, password: hashPassword
         })
         await newUser.save()
         res.json({ message: "Signup successful" })
@@ -36,7 +36,7 @@ export const signin = async (req, res, next) => {
             return next(errorHandler(400, "Invalid password"))
         }
         const token = jwt.sign(
-            { userId: validUser._id, username: validUser.username, isAdmin: validUser.isAdmin },
+            { userId: validUser._id, isAdmin: validUser.isAdmin },
             process.env.JWT_SECRET
         )
         const { password: pass, ...rest } = validUser._doc
@@ -65,7 +65,6 @@ export const google = async (req, res, next) => {
             const generatePassword = Math.random().toString(36).slice(-8);
             const hashPassword = bcryptjs.hashSync(generatePassword, 10)
             const newUser = User.create({
-                username: name.toLowerCase().split(' ').join('') + Math.random().toString(9).slice(-4),
                 email: email,
                 password: hashPassword,
                 profilePicture: googlePhotoUrl

@@ -136,7 +136,6 @@ const DashProfile = () => {
                 <img src={imageFileUrl || currentUser.profilePicture} alt="user" onClick={() => filePickerRef.current.click()}
                     className='cursor-pointer shadow-2xl rounded-full w-[65px] h-[65px] object-cover border-4 border-[#a9a7a7]' />
                 {imageFileUploadError && <Alert color={'failure'}>{imageFileUploadError}</Alert>}
-                <TextInput onChange={handleChange} className='w-full' type='text' id='username' placeholder='username' defaultValue={currentUser.username} />
                 <TextInput onChange={handleChange} className='w-full' type='email' id='email' placeholder='email' defaultValue={currentUser.email} />
                 <TextInput onChange={handleChange} className='w-full' type='password' id='password' placeholder='password' />
                 <Button disabled={loading} type='submit' className='w-full' gradientDuoTone={'purpleToBlue'} outline>
