@@ -128,7 +128,7 @@ const Signin = () => {
                       <span className='pl-2'>Loading...</span>
                     </>
                   ) : (
-                    "Sign Up"
+                    "Sign In"
                   )}
                 </Button>
 
