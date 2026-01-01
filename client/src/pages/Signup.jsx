@@ -47,8 +47,8 @@ const Signup = () => {
           
           {/* Left side - Brand */}
           <div className='flex-1 md:flex flex-col justify-center mb-8 md:mb-0 hidden'>
-            <Link to={'/'} className='text-3xl sm:text-4xl font-bold dark:text-white'>
-              <span className='px-2 py-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-lg text-white'>
+            <Link to={'/'} className='text-3xl sm:text-4xl font-bold'>
+              <span className='px-2 py-1 bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent hover:from-indigo-500 hover:via-purple-500 hover:to-pink-500 transition-all'>
                 BlogForge
               </span>
             </Link>
