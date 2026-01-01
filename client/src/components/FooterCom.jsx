@@ -1,6 +1,7 @@
 import { Footer } from 'flowbite-react'
 import { Link } from 'react-router-dom'
 import { BsLinkedin, BsTwitterX, BsGithub } from "react-icons/bs"
+import BlogForgeLogo from './BlogForgeLogo'
 
 const FooterCom = () => {
     return (
@@ -9,8 +10,9 @@ const FooterCom = () => {
                 <div className='grid grid-cols-1 md:grid-cols-3 gap-8 mb-8'>
                     {/* Brand Section */}
                     <div className='flex flex-col gap-3'>
-                        <Link to={'/'} className='self-start'>
-                            <span className='text-2xl font-bold bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent'>
+                        <Link to={'/'} className='flex items-center whitespace-nowrap flex-shrink-0 tracking-tighter'>
+                            <BlogForgeLogo size='md' showText={true}/>
+                            <span className='text-2xl ml-[-5px] font-bold bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent'>
                                 BlogForge
                             </span>
                         </Link>
